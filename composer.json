@@ -1,0 +1,19 @@
+{
+    "name": "gamerlv/aeriscraft-status-site",
+    "description": "",
+    "require": {
+        "gabordemooij/redbean": "dev-master"
+    },
+    "authors": [
+        {
+            "name": "Levi Voorintholt",
+            "email": "levi.voorintholt+git@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-0": {
+            "Minecraft" : "MCServerStatus/",
+            "Model"     :  "gamerlv/"
+        }
+    }
+}

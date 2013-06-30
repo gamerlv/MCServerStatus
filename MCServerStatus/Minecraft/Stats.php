@@ -6,7 +6,7 @@ class Stats {
 
 	public static function retrieve( \Minecraft\Server $server ) {
 
-		$socket = stream_socket_client(sprintf('tcp://%s:%u', $server->getHostname(), $server->getPort()), $errno, $errstr, 1);
+		$socket = @stream_socket_client(sprintf('tcp://%s:%u', $server->getHostname(), $server->getPort()), $errno, $errstr, 1);
 
 		if (!$socket) {
 			throw new StatsException("Could not connect to the Minecraft server.");
