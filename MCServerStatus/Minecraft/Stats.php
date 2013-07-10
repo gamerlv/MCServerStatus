@@ -30,9 +30,11 @@ class Stats {
 //Code from mc-creative.nl status checker
 
 		//Split into array
-		$z = explode("\xA7", $data);
+		$z = explode("\x00", $data);
 		$d = array('');
 
+/*
+* Motd kleur codes
 		//This may confuse you, ANONYMOUS FUNCTION FTW
 		$colorIt = function($str, $colorCode){
 			$colors = array(
@@ -69,14 +71,11 @@ class Stats {
 			}
 		}
 		$data = $d;
-
-		//FIXME: this is part of the protcol spec, get it from $data, not hardcoded
-		$stats->protocol_version = 74; //1.6
-		$stats->game_version= "1.6";
-
+		*/
+		array_shift($z); //Pop first element off, this is always §1
 
 		$stats->is_online = true;
-		list( $stats->motd, $stats->online_players, $stats->max_players) = $data;
+		list( $stats->protocol_version, $stats->game_version, $stats->motd, $stats->online_players, $stats->max_players) = $z;
 
 		return $stats;
 
